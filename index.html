@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake News Verification System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>📰 Fake News Verification Website</h1>
+
+    <label>Enter News Headline:</label>
+    <input type="text" id="headline" placeholder="Enter news headline here">
+
+    <h3>Verification Checklist</h3>
+    <div class="checklist">
+        <label><input type="checkbox" id="trusted"> Trusted media source found</label>
+        <label><input type="checkbox" id="official"> Official / Government reference</label>
+        <label><input type="checkbox" id="recent"> Recent publication date</label>
+    </div>
+
+    <button onclick="verifyNews()">Verify News</button>
+
+    <div id="output" class="output"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
