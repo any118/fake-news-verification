@@ -1,49 +1,43 @@
-function verifyNews() {
+function checkNews() {
+
     let score = 0;
-    let reasons = [];
 
-    const headline = document.getElementById("headline").value.toLowerCase();
-    const trusted = document.getElementById("trusted").checked;
-    const official = document.getElementById("official").checked;
-    const recent = document.getElementById("recent").checked;
+    if (document.getElementById("trusted").checked) {
+        score += 30;
+    }
 
-    if (trusted) score++;
-    else reasons.push("News not found on trusted media");
+    if (document.getElementById("multiple").checked) {
+        score += 20;
+    }
 
-    if (official) score++;
-    else reasons.push("No official government reference");
+    if (document.getElementById("recent").checked) {
+        score += 10;
+    }
 
-    if (recent) score++;
-    else reasons.push("News date is not recent");
-
-    // Pattern analysis (non-AI)
-    const fakePatterns = ["breaking", "urgent", "share fast", "must watch"];
-    fakePatterns.forEach(word => {
-        if (headline.includes(word)) {
-            reasons.push("Headline contains sensational words");
-        }
-    });
+    if (document.getElementById("official").checked) {
+        score += 5;
+    }
 
     let status = "";
-    if (score >= 2) {
-        status = "🟡 Partially Verified";
+    let reason = "";
+
+    if (score >= 60) {
+        status = "Partially Verified";
+        reason =
+            "• Found on limited trusted sources<br>" +
+            "• Official reference missing<br>" +
+            "• Further verification required";
     } else {
-        status = "🔴 Not Verified";
+        status = "Not Verified";
+        reason =
+            "• Not found on trusted media<br>" +
+            "• No official reference<br>" +
+            "• High risk of misinformation";
     }
 
-    let outputHTML = `<h3>Verification Status: ${status}</h3>`;
-
-    if (status === "🔴 Not Verified") {
-        outputHTML += `
-        <p class="warning">⚠ Warning: This news is not verified by trusted sources.</p>
-        `;
-    }
-
-    outputHTML += `<h4>Reasons:</h4><ul>`;
-    reasons.forEach(r => {
-        outputHTML += `<li>${r}</li>`;
-    });
-    outputHTML += `</ul>`;
-
-    document.getElementById("output").innerHTML = outputHTML;
+    document.getElementById("result").innerHTML =
+        "<b>Verification Status:</b> " + status + "<br>" +
+        "<b>Trust Score:</b> " + score + "%<br><br>" +
+        "<b>Reason:</b><br>" + reason +
+        "<br><br><span style='color:red;'>⚠ This website does not declare news as fake or real.</span>";
 }

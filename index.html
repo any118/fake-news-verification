@@ -2,27 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fake News Verification System</title>
+    <title>Fake News Verification</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <h1>📰 Fake News Verification Website</h1>
+    <h1>Fake News Verification Website</h1>
+    <p>Enter news headline to check verification status</p>
 
-    <label>Enter News Headline:</label>
     <input type="text" id="headline" placeholder="Enter news headline here">
 
-    <h3>Verification Checklist</h3>
-    <div class="checklist">
-        <label><input type="checkbox" id="trusted"> Trusted media source found</label>
-        <label><input type="checkbox" id="official"> Official / Government reference</label>
-        <label><input type="checkbox" id="recent"> Recent publication date</label>
+    <div class="options">
+        <label>
+            <input type="checkbox" id="trusted">
+            Found on trusted media
+        </label><br>
+
+        <label>
+            <input type="checkbox" id="multiple">
+            Multiple sources available
+        </label><br>
+
+        <label>
+            <input type="checkbox" id="recent">
+            Recent news
+        </label><br>
+
+        <label>
+            <input type="checkbox" id="official">
+            Official government source
+        </label>
     </div>
 
-    <button onclick="verifyNews()">Verify News</button>
+    <button onclick="checkNews()">Check News</button>
 
-    <div id="output" class="output"></div>
+    <div id="result" class="result-box"></div>
 </div>
 
 <script src="script.js"></script>

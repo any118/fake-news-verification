@@ -1,18 +1,19 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f2f2f2;
+    background-color: #f2f4f7;
 }
 
 .container {
-    width: 450px;
+    width: 420px;
     margin: 50px auto;
-    background: white;
+    background: #ffffff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 h1 {
-    text-align: center;
+    color: #1a73e8;
 }
 
 input[type="text"] {
@@ -21,28 +22,26 @@ input[type="text"] {
     margin: 10px 0;
 }
 
-.checklist label {
-    display: block;
-    margin: 5px 0;
+.options {
+    margin: 10px 0;
 }
 
 button {
     width: 100%;
     padding: 10px;
-    background: #007bff;
+    background-color: #1a73e8;
     color: white;
     border: none;
-    margin-top: 10px;
     cursor: pointer;
 }
 
 button:hover {
-    background: #0056b3;
+    background-color: #0c5fd8;
 }
 
-.output {
+.result-box {
     margin-top: 15px;
     padding: 10px;
     border-radius: 5px;
-    background: #eef;
+    background-color: #eef3ff;
 }
